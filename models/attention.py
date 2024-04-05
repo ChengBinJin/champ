@@ -255,17 +255,7 @@ class BasicTransformerBlock(nn.Module):
                 norm_hidden_states,
                 encoder_hidden_states=encoder_hidden_states,
                 attention_mask=encoder_attention_mask,
-                **cross_attention_kwargs,
-            )
-            hidden_states = attn_output + hidden_states
-
-        # 4. Feed-forward
-        if not self.use_ada_layer_norm_single:
-            norm_hidden_states = self.norm3(hidden_states)
-
-        if self.use_ada_layer_norm_zero:
-            norm_hidden_states = (
-                norm_hidden_states * (1 + scale_mlp[:, None]) + shift_mlp[:, None]
+                **cross_attention_kwargs,lp[:, None]) + shift_mlp[:, None]
             )
 
         if self.use_ada_layer_norm_single:
