@@ -31,6 +31,7 @@ class ChampModel(nn.Module):
     def forward(
         self,
         noisy_latents,
+        timesteps-1,
         timesteps,
         ref_image_latents,
         clip_image_embeds,
