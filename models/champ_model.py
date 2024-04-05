@@ -33,6 +33,7 @@ class ChampModel(nn.Module):
         noisy_latents,
         timesteps-1,
         timesteps,
+        timesteps1
         ref_image_latents,
         clip_image_embeds,
         multi_guidance_cond,
