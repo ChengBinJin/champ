@@ -298,20 +298,6 @@ class TemporalBasicTransformerBlock(nn.Module):
         self.unet_use_cross_frame_attention = unet_use_cross_frame_attention
         self.unet_use_temporal_attention = unet_use_temporal_attention
 
-        # SC-Attn
-        self.attn1 = Attention(
-            query_dim=dim,
-            heads=num_attention_heads,
-            dim_head=attention_head_dim,
-            dropout=dropout,
-            bias=attention_bias,
-            upcast_attention=upcast_attention,
-        )
-        self.norm1 = (
-            AdaLayerNorm(dim, num_embeds_ada_norm)
-            if self.use_ada_layer_norm
-            else nn.LayerNorm(dim)
-        )
 
         # Cross-Attn
         if cross_attention_dim is not None:
