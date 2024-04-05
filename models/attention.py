@@ -106,15 +106,6 @@ class BasicTransformerBlock(nn.Module):
                 dim, elementwise_affine=norm_elementwise_affine, eps=norm_eps
             )
 
-        self.attn1 = Attention(
-            query_dim=dim,
-            heads=num_attention_heads,
-            dim_head=attention_head_dim,
-            dropout=dropout,
-            bias=attention_bias,
-            cross_attention_dim=cross_attention_dim if only_cross_attention else None,
-            upcast_attention=upcast_attention,
-        )
 
         # 2. Cross-Attn
         if cross_attention_dim is not None or double_self_attention:
